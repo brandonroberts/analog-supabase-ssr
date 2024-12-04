@@ -1,6 +1,6 @@
-# analog-supabase-ssr
+# Analog + Angular + Supabase SSR
 
-This is an example application that uses [Supabase](https://supabase.com) for authentication, database access, and SSR.
+This is an example application that uses Analog, Angular, and [Supabase](https://supabase.com) for authentication, database access, and SSR.
 
 ## Setup
 

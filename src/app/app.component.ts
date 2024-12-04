@@ -16,6 +16,7 @@ import { SupabaseAuthService } from './pages/auth.service';
     }
 
     | <a routerLink="/countries">Countries</a>
+    | <a routerLink="/protected">Protected</a>
     <router-outlet />
   `,
   styles: `
