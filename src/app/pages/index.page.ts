@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   template: `
     <div>
       <a href="https://analogjs.org/" target="_blank">

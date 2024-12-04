@@ -8,8 +8,11 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: ['es2020'],
   },
+  optimizeDeps: {
+    include: ['@supabase/supabase-js', '@supabase/ssr']
+  },
   resolve: {
-    mainFields: ['module'],
+    mainFields: ['module', 'browser'],
   },
   plugins: [analog()],
   test: {
