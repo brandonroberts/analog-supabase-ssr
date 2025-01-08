@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   selector: 'app-login-page',
   imports: [FormAction],
   template: `
-    <h2>Login</h2>  
+    <h2>Login</h2>
   
     <form method="post">
       <label for="email">Email:</label>
@@ -14,7 +14,7 @@ import { Component } from "@angular/core";
       <br />
 
       <label for="password">Password:</label>
-      <input id="password" name="password" type="password"/>
+      <input id="password" name="password" type="password" autocomplete="off" />
 
       <br />
 

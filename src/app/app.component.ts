@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 import { SupabaseAuthService } from './pages/auth.service';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,14 @@ import { SupabaseAuthService } from './pages/auth.service';
 })
 export class AppComponent {
   authService = inject(SupabaseAuthService);
+  router = inject(Router);
+
+  constructor() {
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      tap(() => this.authService.refresh())
+    ).subscribe();
+  }
 
   logout() {
     this.authService.logout();

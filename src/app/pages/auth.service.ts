@@ -10,12 +10,10 @@ export class SupabaseAuthService {
   readonly loggedIn = computed(() => !!this.session());
 
   constructor() {
-    this.getSession().then(({ data: { session } }) => {
-      this.session.set(session);
-    });
+    this.refresh();
 
-    this.supabase.auth.onAuthStateChange((_event, session) => {
-      this.session.set(session);
+    this.supabase.auth.onAuthStateChange((_event) => {
+      this.refresh();
     });
   }
 
@@ -25,5 +23,11 @@ export class SupabaseAuthService {
 
   async logout() {
     await this.supabase.auth.signOut();
+  }
+
+  refresh() {
+    this.getSession().then(({ data: { session } }) => {
+      this.session.set(session);
+    });
   }
 }
